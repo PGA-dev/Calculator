@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root{
+    --background-color:rgba(0,0,0,1);
+    --border-color:rgba(150,150,150,1);
+    --calc-color: rgba(10,10,100,1);
+    --key-color1: rgba(50,20,200,1);
+    --key-color2: rgba(200,0,200,1);
+    --key-color3: rgba(5,125,5,1);
+    --key-color4: rgba(195, 144, 21,1);
+    --key-font-color: rgba(0,255,255,1);
+    --key-active-color: rgba(25,255,255,.5);
+    --key_box_shadow: rgba(0,200,255,.5);
+    --box-shadow-color1: rgba(255, 255, 255, 0.3);
+    --box-shadow-color2: rgba(255, 255, 255, 0.2);
+    --box-shadow-active: rgba(255, 255, 255, 0.2);
+    --display-box-color: rgb(220, 219, 225);
+    --display-font-color: rgba(0,0,0,1)
+}
+
+[theme="light"]{
+    --background-color:rgba(200,200,200,1);
+    --border-color:rgba(150,150,150,1);
+    --calc-color: rgba(55,150,150,1);
+    --key-color1: rgba(200,0,200,1);
+    --key-color2: rgba(50,20,200,1);
+    --key-color3: rgba(5,125,5,1);
+    --key-color4: rgba(200, 144, 21,1);
+    --key-font-color: rgba(0,255,255,1);
+    --key-active-color: rgba(255,25,255,.5);
+    --key_box_shadow: rgba(255,25,255,.5);
+    --box-shadow-color1: rgba(0, 0, 0, 0.9);
+    --box-shadow-color2: rgba(255, 255, 255, 0.9);
+    --box-shadow-active: rgba(255, 255, 255, 0.2);
+    --display-box-color: rgb(220, 219, 225);
+    --display-font-color: rgba(0,0,0,1)
+}
+
+body{
+background-color: var(--background-color);
+} 
+
+.wrapper {
+    display: grid;
+    height: 32rem;
+    background-color: var(--background-color);
+}
+.calculator {
+    padding: 1em;
+    border-radius: 3em;
+    height: 20rem;
+    width: 25rem;
+    margin: auto;
+    background-color: var(--calc-color);
+    box-shadow: var(--box-shadow-color1) 0px 10px 20px, var(--box-shadow-color2) 0px 6px 6px;
+}
+
+.display-box {
+    font-family: 'Kode+Mono', sans-serif;
+    font-size: 2em;
+    background-color: var(--display-box-color);
+    border: solid var(--border-color) .1rem;
+    color: var(--display-font-color);
+    border-radius: 1em;
+    width: 95%;
+    height: 95%;
+}
+
+#theme{
+    font-family: 'Kode+Mono', sans-serif;
+    font-size: 2em;
+    background-color: var(--key-color1);
+    border: solid var(--border-color) .01em;
+    margin-right: 1px;
+    width: 97%;
+    border-radius: 50%;
+    height: 100%;
+    outline: none;
+} 
+
+input[type=button] {
+    font-family: 'Kode+Mono', sans-serif;
+    font-size: 1em;
+    background-color: var(--key-color2);
+    color: var(--key-font-color);
+    border: solid var(--border-color) .01em;
+    /* margin-right: 1px; */
+    width: 100%;
+    border-radius: 50%;
+    height: 70%;
+    padding: 2em;
+    outline: none;
+    box-shadow: 0 1px 1px 1px var(--key_box_shadow);
+}
+#gh{
+    font-family: 'Kode+Mono', sans-serif;
+    font-size: 1em;
+    background-color: var(--key-color2);
+    color: var(--key-font-color);
+    border: solid var(--border-color) 0.5px;
+    margin-right: 1px;
+    width: 100%;
+    border-radius: 50%;
+    height: 70%;
+    padding: 2em;
+    outline: none;
+    box-shadow: 0 1px 1px 1px var(--key_box_shadow);
+}
+
+#clear-btn, #gh{ background-color: var(--key-color1);}
+#oper-btn{ background-color: var(--key-color4);}
+#calc-btn{ background-color: var(--key-color3);}
+input:active[type=button], #clear-btn:active, #gh:active, #oper-btn:active, #calc-btn:active, #theme:active{background: var(--key-active-color);}

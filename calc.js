@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const buttons = document.querySelectorAll(".calculator input[type='button']");
     const toggleLightDark = document.getElementById("theme");
 
-    //hash array for operator lookup
+    //hash string array for operator lookup
     const operMap = ["**", "+", "*", "/", "%", "-"];
 
     // Flag to track if the result has been calculated
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
             backSpace();
         } else if (value === "=") {
             calculate();
-            isResultCalculated = true; // Set the flag after calculation
+            isResultCalculated = true; // Set the flag after calculation for result reset
         } else if (value === "🌙" || value === "🌞") {
             toggleTheme();
         } else if (value === "CE") {
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function decDisplay(val) {
-        if (resultBox.value[resultBox.value.length - 1] === operMap[4]) {
+        if (resultBox.value[resultBox.value.length - 1] === '.') {
             return;
         }
         return resultBox.value += val;

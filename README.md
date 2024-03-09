@@ -5,8 +5,8 @@ The project started as an attempt to create a functional calculator that encorpo
     
 ## ToDo:
 - I had a little fun with the CSS, but haven't fully scaled it properly yet for tablet and mobile.
-- Need to modularize and/or simplify the functions
-- Add cleanup  
+- Have some minor workflow bugs
+    - . followed by - causes issues
 
 ### Languages Used:
 - Html

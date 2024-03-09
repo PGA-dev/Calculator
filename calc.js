@@ -98,9 +98,12 @@ function toggleLightDarkCleanup() {
     function negDisplay(val) {
         const lastChar = resultBox.value[resultBox.value.length - 1];
         const secondLastChar = resultBox.value[resultBox.value.length - 2];
-        if (lastChar === "-" && secondLastChar === "-") {
+        if (resultBox.innerHTML.length <=1  && lastChar === "-") {
             return; // Prevent "--"
-        } else if (resultBox.value === "" || operMap.includes(lastChar)) {
+        }else if (lastChar === "-" && secondLastChar === "-") {
+            return; // Prevent "--"
+        } 
+        else if (resultBox.value === "" || operMap.includes(lastChar)) {
             resultBox.value += val;
         } else if (lastChar === ".") {
             return; // Prevent ".-" or ".."

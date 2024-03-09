@@ -4,7 +4,9 @@
 The project started as an attempt to create a functional calculator that encorporated different features from a standard calculator that encorporated some easy JS functionality with fairly good looking CSS. I adopted many common features using a table format, with input button elements for the keys. I used 3 display functions and a result calculation function for the basic workflow; encorporating a function for light/dark, a function for backspace, and a GH link for fun. 
     
 ## ToDo:
-- I had a little fun with the CSS, but haven't fully scaled it properly yet for tablet and mobile.  
+- I had a little fun with the CSS, but haven't fully scaled it properly yet for tablet and mobile.
+- Need to modularize and/or simplify the functions
+- Add cleanup  
 
 ### Languages Used:
 - Html

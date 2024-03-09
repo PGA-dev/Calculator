@@ -11,6 +11,20 @@ document.addEventListener("DOMContentLoaded", function () {
     // Flag to track if the result has been calculated
     let isResultCalculated = false;
 
+// Cleanup functions for event listeners
+function clearButtonCleanup() {
+    clearButton.removeEventListener("click", clearResultBox);
+}
+
+function buttonsCleanup() {
+    buttons.forEach(button => {
+        button.removeEventListener("click", buttonClickHandler);
+    });
+}
+
+function toggleLightDarkCleanup() {
+    toggleLightDark.removeEventListener("click", toggleLightDarkClickHandler);
+}
 
 // Add event listeners
 
@@ -22,22 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     //Theme toggle event add
     toggleLightDark.addEventListener("click", toggleLightDarkClickHandler);
-
-
-// Cleanup functions for event listeners
-    function clearButtonCleanup() {
-        clearButton.removeEventListener("click", clearResultBox);
-    }
-
-    function buttonsCleanup() {
-        buttons.forEach(button => {
-            button.removeEventListener("click", buttonClickHandler);
-        });
-    }
-
-    function toggleLightDarkCleanup() {
-        toggleLightDark.removeEventListener("click", toggleLightDarkClickHandler);
-    }
 
     // Button click event handler
     function buttonClickHandler() {
@@ -100,10 +98,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function negDisplay(val) {
         const lastChar = resultBox.value[resultBox.value.length - 1];
         const secondLastChar = resultBox.value[resultBox.value.length - 2];
-        if (resultBox.value === "" || operMap.includes(lastChar)) {
-            resultBox.value += val;
-        } else if (lastChar === "-" && secondLastChar === "-") {
+        if (lastChar === "-" && secondLastChar === "-") {
             return; // Prevent "--"
+        } else if (resultBox.value === "" || operMap.includes(lastChar)) {
+            resultBox.value += val;
         } else if (lastChar === ".") {
             return; // Prevent ".-" or ".."
         } else {

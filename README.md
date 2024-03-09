@@ -5,9 +5,8 @@ The project started as an attempt to create a functional calculator that encorpo
     
 ## ToDo:
 - I had a little fun with the CSS, but haven't fully scaled it properly yet for tablet and mobile.
-- Jest add coming
-- Have some minor workflow bugs
-    - "-" needs constraints for repeat, likely need to add a triple lookup
+- Jest add coming in future version
+
 
 ### Languages Used:
 - Html

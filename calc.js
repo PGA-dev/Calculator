@@ -11,22 +11,22 @@ document.addEventListener("DOMContentLoaded", function () {
     // Flag to track if the result has been calculated
     let isResultCalculated = false;
 
-// Cleanup functions for event listeners
-function clearButtonCleanup() {
-    clearButton.removeEventListener("click", clearResultBox);
-}
+    // Cleanup functions for event listeners
+    function clearButtonCleanup() {
+        clearButton.removeEventListener("click", clearResultBox);
+    }
 
-function buttonsCleanup() {
-    buttons.forEach(button => {
-        button.removeEventListener("click", buttonClickHandler);
-    });
-}
+    function buttonsCleanup() {
+        buttons.forEach(button => {
+            button.removeEventListener("click", buttonClickHandler);
+        });
+    }
 
-function toggleLightDarkCleanup() {
-    toggleLightDark.removeEventListener("click", toggleLightDarkClickHandler);
-}
+    function toggleLightDarkCleanup() {
+        toggleLightDark.removeEventListener("click", toggleLightDarkClickHandler);
+    }
 
-// Add event listeners
+    // Add event listeners
 
     //clear
     clearButton.addEventListener("click", clearResultBox);
@@ -47,7 +47,7 @@ function toggleLightDarkCleanup() {
         }
         if (value === "←") {
             backSpace();
-        }else if (value === "-") {
+        } else if (value === "-") {
             negDisplay(value);
         } else if (value === "=") {
             calculate();
@@ -56,7 +56,7 @@ function toggleLightDarkCleanup() {
             toggleTheme();
         } else if (value === "CE") {
             clearResultBox();
-        }  else if (operMap.includes(value)) {
+        } else if (operMap.includes(value)) {
             if (resultBox.value !== "" && !operMap.includes(lastChar) && lastChar !== ".") {
                 operDisplay(value);
             }
@@ -98,11 +98,11 @@ function toggleLightDarkCleanup() {
     function negDisplay(val) {
         const lastChar = resultBox.value[resultBox.value.length - 1];
         const secondLastChar = resultBox.value[resultBox.value.length - 2];
-        if (resultBox.innerHTML.length <=1  && lastChar === "-") {
+        if (resultBox.innerHTML.length <= 1 && lastChar === "-") {
             return; // Prevent "--"
-        }else if (lastChar === "-" && secondLastChar === "-") {
+        } else if (lastChar === "-" && secondLastChar === "-") {
             return; // Prevent "--"
-        } 
+        }
         else if (resultBox.value === "" || operMap.includes(lastChar)) {
             resultBox.value += val;
         } else if (lastChar === ".") {

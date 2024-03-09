@@ -6,7 +6,7 @@ The project started as an attempt to create a functional calculator that encorpo
 ## ToDo:
 - I had a little fun with the CSS, but haven't fully scaled it properly yet for tablet and mobile.
 - Have some minor workflow bugs
-    - . followed by - causes issues
+    - "-" needs constraints for repeat, likely need to add a triple lookup
 
 ### Languages Used:
 - Html

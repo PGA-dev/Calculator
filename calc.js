@@ -49,6 +49,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         if (value === "←") {
             backSpace();
+        }else if (value === "-") {
+            negDisplay(value);
         } else if (value === "=") {
             calculate();
             isResultCalculated = true; // Set the flag after calculation for result reset
@@ -56,9 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
             toggleTheme();
         } else if (value === "CE") {
             clearResultBox();
-        } else if (value === "-") {
-            negDisplay(value);
-        } else if (operMap.includes(value)) {
+        }  else if (operMap.includes(value)) {
             if (resultBox.value !== "" && !operMap.includes(lastChar) && lastChar !== ".") {
                 operDisplay(value);
             }

@@ -36,4 +36,4 @@ The project started as an attempt to create a functional calculator that encorpo
     - 4 hours
 
 
-#### https://github.com/PGA-dev/Calulator
+#### https://github.com/PGA-dev/Calculator

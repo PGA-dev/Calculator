@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Toggle theme event handler
+    // Toggle theme event handler (used icons and the basic calling structure for the icons from vydroz's approach, but only for the function/not the key mapping -- see README.md)
     function toggleLightDarkClickHandler() {
         let themeToggle = document.documentElement.getAttribute('theme') == null;
         themeToggle ? document.documentElement.setAttribute('theme', 'light') : document.documentElement.removeAttribute('theme', 'light');

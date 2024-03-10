@@ -35,8 +35,12 @@ The project started as an attempt to create a functional calculator that encorpo
 - I had a little fun with the CSS, but haven't fully scaled it properly yet for tablet and mobile.
 - Jest add coming in future version
 
-![darkFinal picture](/darkFinal.png "Dark Pic")
+# Pictures
+### Dark Mode
+![darkFinal picture](/darkFinal.png "Dark mode picture")
 
+### Light Mode
+![lightFinal picture](/lightFinal.png "Light mode picture")
 
 
 #### https://github.com/PGA-dev/Calculator

@@ -15,7 +15,7 @@ The project started as an attempt to create a functional calculator that encorpo
 I also jumped on to Open AI Chat GPT 3.5 to ask some general questions about modularity and listener cleanup. This was an interesting experience, as I have used Open AI a few times to answer difficult questions while in school, but didn't realize that some of its answers were actually pretty unusable, and often didn't work at all. I learned that you have to be a fairly adept developer to work using AI, as you will have to restructure, refactor, and seriously mod any code that you give it, or ask it about, to actually use within most project workflows. While I thought this was a valuable experience, I would caution young, or language inexperienced devs, in putting too much weight on artificial intelligence while coding -- AI is great to ask a syntax question: "given the following constructor approach, how might you implement this feature...", but realize that the answer it gives will likely require some very heavy modification to be usable.
 
 #### Finally...
-I did create some private versions of multiple approaches, using other devs design models, but in the end, I wanted to build one of these fairly well from scratch, so I adopted some of the features I found, using my own coding approaches -- often simplifying some of the more difficult ideas I found, as JavaScript calculators can range from very simple, to extremely capable; creating my own fairly reproducable design! I will include a few other GitHubbers, YouTubers and web calculators I find over time at the bottom of the MD! But at the time of writing this, not planning on updating this approach heavily, just think that there is a lot to learn regarding DOM interaction for calculators.
+I did create some private versions of multiple approaches, using other devs design models, but in the end, I wanted to build one of these fairly well from scratch, so I adopted some of the features I found, using my own coding approaches -- often simplifying some of the more difficult ideas I found, as JavaScript calculators can range from very simple, to extremely capable; creating my own fairly reproducable design! I may include a few other GitHubbers, YouTubers and web calculators I find over time at the bottom of the MD! But at the time of writing this, not planning on updating this approach heavily, just realize that there is a lot f ground to cover regarding DOM interaction for calculators.
 
 ## My Design
 
@@ -63,7 +63,7 @@ Since most of these types of projects are undertaken by JR developers looking fo
     - 6-8 hours
 - #### Writeup
     - 1 hour
-    
+
 ## ToDo:
 - I had a little fun with the CSS, but haven't fully scaled it properly yet for tablet and mobile.
 - Jest add coming in future version

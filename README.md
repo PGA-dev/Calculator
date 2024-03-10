@@ -43,6 +43,7 @@ I did create some private versions of multiple approaches, using other devs desi
 
 #### JavaScript
 - Vanilla JS script addressed using all functionality as callbacks inside of general DOM ContentLoaded event listener
+- Hash array used for calculator function lookup
 - modular approach to add event listeners, calling the button mapper inside of the listener
     - Button map filter calls functions for specific key functionality
     - flag for basic workflow, to add auto cleanup of results window after calculation is performed, and new calculation is attempted
@@ -53,17 +54,21 @@ Finally, and esthetically speaking, I used a light/dark toggle to play about som
     
 
 ### Hours Worked:
+Since most of these types of projects are undertaken by JR developers looking for some quick resume fill, I figured I would 
 - #### Initial Research
     - 2-3 hours
 - #### Code Primary
     - 2 hours
-- #### BugFix and CSS modification
-    - 7 hours
-
+- #### BugFix
+    - 6-8 hours
+- #### Writeup
+    - 1 hour
+    
 ## ToDo:
 - I had a little fun with the CSS, but haven't fully scaled it properly yet for tablet and mobile.
 - Jest add coming in future version
 -  I think that I can clean the JS up a bit with a general generic callback for all event listeners, but maybe that is a bit unecessary, and might, depending upon implementation, be slower.
+- Probably could update the hash array, into a full hash Map, or hash object approach -- I purely wanted the functionality of a fast reference point, but didn't want the complexity of a true Hashable feature, though maybe will do this on a future calculator project.
 - React version would be a good idea; or maybe a React/Vanilla JS wrapper on a Python shell (vastly prefer OOP script, and C-based, languages for doing basic math...lol)
 
 # Pictures

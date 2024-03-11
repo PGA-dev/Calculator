@@ -11,33 +11,32 @@ document.addEventListener("DOMContentLoaded", function () {
     // Flag to track if the result has been calculated
     let isResultCalculated = false;
 
-    // Cleanup functions for event listeners
-    function clearButtonCleanup() {
-        clearButton.removeEventListener("click", clearResultBox);
+
+  // To get rid of the eval() curse that was the legacy of early versions:
+  function evaluateExpression(expression) {
+    return Function(`'use strict'; return (${expression});`)();
+}
+
+    function addListeners() {
+        clearButton.addEventListener("click", clearResultBox);
+        buttons.forEach(button => {
+            button.addEventListener("click", buttonClickHandler);
+        });
+        toggleLightDark.addEventListener("click", toggleLightDarkClickHandler);
     }
 
-    function buttonsCleanup() {
+    // Initialize event listeners 
+    addListeners();
+
+    // Cleanup functions for event listeners
+    function cleanupListeners() {
+        clearButton.removeEventListener("click", clearResultBox);
         buttons.forEach(button => {
             button.removeEventListener("click", buttonClickHandler);
         });
-    }
-
-    function toggleLightDarkCleanup() {
         toggleLightDark.removeEventListener("click", toggleLightDarkClickHandler);
     }
 
-    // Add event listeners
-
-    //clear
-    clearButton.addEventListener("click", clearResultBox);
-    //button handler event add
-    buttons.forEach(button => {
-        button.addEventListener("click", buttonClickHandler);
-    });
-    //Theme toggle event add
-    toggleLightDark.addEventListener("click", toggleLightDarkClickHandler);
-
-    // Button click event handler
     function buttonClickHandler() {
         const value = this.value;
         const lastChar = resultBox.value[resultBox.value.length - 1];
@@ -76,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
         toggleLightDark.textContent = themeToggle ? "🌙" : "🌞";
     }
 
-    // Additional functions and callback
+    // Additional functions for keymapped functionality
     function keyDisplay(val) {
         resultBox.value += val;
     }
@@ -120,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function calculate() {
         let calculation = resultBox.value;
-        calulationResult = eval(calculation);
+        calulationResult = evaluateExpression(calculation); //using the evaluateExpression to safely do our work
         resultBox.value = calulationResult;
     }
 
@@ -128,13 +127,18 @@ document.addEventListener("DOMContentLoaded", function () {
         resultBox.value = "";
     }
 
-    // Cleanup functions call
+//Cleanup Initialization
     function cleanupAllListeners() {
-        clearButtonCleanup();
-        buttonsCleanup();
-        toggleLightDarkCleanup();
+        cleanupListeners(); // Remove specific event listeners
+        window.removeEventListener("unload", cleanupAllListeners); // Remove unload event listener
     }
 
-    // Cleanup all event listeners on page unload
-    window.addEventListener("unload", cleanupAllListeners);
+    //last call approach I call this - this approach isn't really necessary to do, 
+    //you can call all cleanup as: window.addEventListener("unload", cleanupAllListeners)
+    //I just thought it might be interesting to find a way to remove the cleanup add
+    //In a more complex usage, you might conditionally clean up based upon user status
+    //or login status, so I wanted structure to handle the future application
+    window.addEventListener("beforeunload", function() {
+        cleanupAllListeners();
+    });
 });

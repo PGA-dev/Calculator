@@ -71,6 +71,7 @@ Since most of these types of projects are undertaken by JR developers looking fo
 - Probably could update the hash array, into a full hash Map, or hash object approach -- I purely wanted the functionality of a fast reference point, but didn't want the complexity of a true Hashable feature, though maybe will do this on a future calculator project.
 - React version would be a good idea; or maybe a React/Vanilla JS wrapper on a Python shell (vastly prefer OOP script, and C-based, languages for doing basic math...lol)
 
+
 # Pictures
 ### Dark Mode
 ![darkFinal picture](/darkFinal.png "Dark mode picture")

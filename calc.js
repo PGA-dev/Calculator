@@ -16,12 +16,14 @@ document.addEventListener("DOMContentLoaded", function () {
     function evaluateExpression(expression) {
         try {
             return new Function('return ' + expression)();
-        } catch (error) {
+        } catch (error) {       
             console.error("Error evaluating expression:", error);
-            return "Error";
+            clearResultBox();
+            return null;
         }
     }
 
+    //Handling for event listeners
     function addListeners() {
         try {
             clearButton.addEventListener("click", clearResultBox);
@@ -36,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-    // Initialize event listeners 
+// INITIALIZE EVENT LISTENERS 
     addListeners();
 
     // Cleanup functions for event listeners
@@ -108,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function negDisplay(val) {
         const lastChar = resultBox.value[resultBox.value.length - 1];
         const secondLastChar = resultBox.value[resultBox.value.length - 2];
-        if (resultBox.innerHTML.length <= 1 && lastChar === "-") {
+        if (resultBox.innerHTML.length == 1 && lastChar === "-") {
             return; // Prevent "--"
         } else if (lastChar === "-" && secondLastChar === "-") {
             return; // Prevent "--"
@@ -122,6 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    
     function backSpace() {
         let back = resultBox.value;
         result = back.slice(0, -1);
@@ -130,15 +133,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function calculate() {
         let calculation = resultBox.value;
-        calulationResult = evaluateExpression(calculation); //using the evaluateExpression to safely do our work
-        resultBox.value = calulationResult;
+        const calculationResult = evaluateExpression(calculation);
+        if (calculationResult !== null) {
+            resultBox.value = calculationResult; // Update result only if calculation is successful
+            isResultCalculated = true; // Set the flag after successful calculation for result reset
+        } else {
+            // Log error message but retain current result and do not change isResultCalculated flag
+            console.error("Calculation failed. Please check your input.");
+        }
     }
 
     function clearResultBox() {
         resultBox.value = "";
     }
 
-    //Cleanup Initialization
+//CLEANUP INITIALIZATION
     function cleanupAllListeners() {
         cleanupListeners(); // Remove specific event listeners
         window.removeEventListener("unload", cleanupAllListeners); // Remove unload event listener

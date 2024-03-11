@@ -139,9 +139,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     //last call approach I call this - this approach isn't really necessary to do, 
-    //you can call all cleanup as: window.addEventListener("unload", cleanupAllListeners)
+    //to have a cleanup clean itself, instead you can call all cleanup as:
+    // window.addEventListener("unload", cleanupAllListeners)
     //I just thought it might be interesting to find a way to remove the cleanup add
-    //In a more complex usage, you might conditionally clean up based upon user status
+    //as in a more complex usage, you might conditionally clean up based upon user status
     //or login status, so I wanted structure to handle the future application
     window.addEventListener("beforeunload", function() {
         cleanupAllListeners();

@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function evaluateExpression(expression) {
         try {
             return new Function('return ' + expression)();
-        } catch (error) {       
+        } catch (error) {
             console.error("Error evaluating expression:", error);
             clearResultBox();
             return null;
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-// INITIALIZE EVENT LISTENERS 
+    // INITIALIZE EVENT LISTENERS 
     addListeners();
 
     // Cleanup functions for event listeners
@@ -59,8 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         if (value === "←") {
             backSpace();
-        } else if (value === "-") {
-            negDisplay(value);
+        } else if (value === "neg") {
+            negDisplay();
         } else if (value === "=") {
             calculate();
             isResultCalculated = true; // Set the flag after calculation for result reset
@@ -68,6 +68,8 @@ document.addEventListener("DOMContentLoaded", function () {
             toggleTheme();
         } else if (value === "CE") {
             clearResultBox();
+        } else if (value === "-") {
+            subtraction(value);
         } else if (operMap.includes(value)) {
             if (resultBox.value !== "" && !operMap.includes(lastChar) && lastChar !== ".") {
                 operDisplay(value);
@@ -107,24 +109,23 @@ document.addEventListener("DOMContentLoaded", function () {
         return resultBox.value += val;
     }
 
-    function negDisplay(val) {
-        const lastChar = resultBox.value[resultBox.value.length - 1];
-        const secondLastChar = resultBox.value[resultBox.value.length - 2];
-        if (resultBox.innerHTML.length == 1 && lastChar === "-") {
-            return; // Prevent "--"
-        } else if (lastChar === "-" && secondLastChar === "-") {
-            return; // Prevent "--"
+    function negDisplay() {
+        if (resultBox.value === ""  || operMap.includes(resultBox.value)) {
+            return;
+        } else {
+            resultBox.value = (-parseFloat(resultBox.value)).toString();
         }
-        else if (resultBox.value === "" || operMap.includes(lastChar)) {
-            resultBox.value += val;
-        } else if (lastChar === ".") {
-            return; // Prevent ".-" or ".."
+    }
+
+    function subtraction(val) {
+        const lastChar = resultBox.value[resultBox.value.length - 1];
+        if (lastChar === "-") {
+            return; // Prevent "--"
         } else {
             resultBox.value += val;
         }
     }
 
-    
     function backSpace() {
         let back = resultBox.value;
         result = back.slice(0, -1);
@@ -147,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
         resultBox.value = "";
     }
 
-//CLEANUP INITIALIZATION
+    //CLEANUP INITIALIZATION
     function cleanupAllListeners() {
         cleanupListeners(); // Remove specific event listeners
         window.removeEventListener("unload", cleanupAllListeners); // Remove unload event listener

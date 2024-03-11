@@ -68,6 +68,8 @@ Since most of these types of projects are undertaken by JR developers looking fo
         - 10 min
     - Function event clean:
         - 20 min
+    - Negative button add *(pulling the negative and the "-" functionality away from each other)
+        - 45 min
     
 
 ## ToDo:

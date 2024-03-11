@@ -119,8 +119,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function subtraction(val) {
         const lastChar = resultBox.value[resultBox.value.length - 1];
-        if (lastChar === "-") {
-            return; // Prevent "--"
+        if (lastChar === "-" || operMap.includes(resultBox.value)) {
+            return; // Prevent improper usage
         } else {
             resultBox.value += val;
         }

@@ -54,9 +54,9 @@ Finally, and esthetically speaking, I used a light/dark toggle to play about som
     
 
 ### Hours Worked:
-Since most of these types of projects are undertaken by JR developers looking for some quick resume fill, I figured I would 
+Since most of these types of projects are undertaken by JR developers looking for some quick resume fill, I figured I would give an understanding of what time it took me to write this; for a senior, probably about half of this (and twice as good), for a junior that struggles with beginner JS maybe double? Notice the write-up and research is a lot of the game.
 - #### Initial Research
-    - 2-3 hours
+    - 2-4 hours
 - #### Code Primary
     - 2 hours
 - #### BugFix

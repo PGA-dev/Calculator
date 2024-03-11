@@ -14,7 +14,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // To get rid of the eval() curse that was the legacy of early versions:
   function evaluateExpression(expression) {
-    return Function(`'use strict'; return (${expression});`)();
+    try {
+        return new Function('return ' + expression)();
+    } catch (error) {
+        console.error("Error evaluating expression:", error);
+        return "Error";
+    }
 }
 
     function addListeners() {

@@ -75,7 +75,7 @@ Since most of these types of projects are undertaken by JR developers looking fo
 - Jest add coming in future version
 - Probably could update the hash array, into a full hash Map, or hash object approach -- I purely wanted the functionality of a fast reference point, but didn't want the complexity of a true Hashable feature, though maybe will do this on a future calculator project.
 - React version would be a good idea; or maybe a React/Vanilla JS wrapper on a Python shell (vastly prefer OOP script, and C-based, languages for doing basic math...lol)
-- Using eval() is also a scripting issue for security -- you really want to use it indirectly (a problem with early versions of this project); using the current version of my evaluate function is still a string-based approach that is slower than parsing numbers, as it uses an invocation of the JavaScript interpreter...just a PSA 
+- Using eval() is also a scripting issue for security -- you really want to use it indirectly (a problem with early versions of this project); using the current version of my evaluate Function() constructor, as a new Function, does actually adhere to more strict policy on security, but there are much better ways...just a PSA 
 
 # Pictures
 ### Dark Mode

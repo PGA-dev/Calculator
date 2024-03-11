@@ -12,22 +12,28 @@ document.addEventListener("DOMContentLoaded", function () {
     let isResultCalculated = false;
 
 
-  // To get rid of the eval() curse that was the legacy of early versions:
-  function evaluateExpression(expression) {
-    try {
-        return new Function('return ' + expression)();
-    } catch (error) {
-        console.error("Error evaluating expression:", error);
-        return "Error";
+    // To get rid of the eval() curse that was the legacy of early versions:
+    function evaluateExpression(expression) {
+        try {
+            return new Function('return ' + expression)();
+        } catch (error) {
+            console.error("Error evaluating expression:", error);
+            return "Error";
+        }
     }
-}
 
     function addListeners() {
-        clearButton.addEventListener("click", clearResultBox);
-        buttons.forEach(button => {
-            button.addEventListener("click", buttonClickHandler);
-        });
-        toggleLightDark.addEventListener("click", toggleLightDarkClickHandler);
+        try {
+            clearButton.addEventListener("click", clearResultBox);
+            buttons.forEach(button => {
+                button.addEventListener("click", buttonClickHandler);
+            });
+            toggleLightDark.addEventListener("click", toggleLightDarkClickHandler);
+        } catch (error) {
+            console.error("Error attaching listeners", error);
+            return "Error";
+        }
+
     }
 
     // Initialize event listeners 
@@ -132,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
         resultBox.value = "";
     }
 
-//Cleanup Initialization
+    //Cleanup Initialization
     function cleanupAllListeners() {
         cleanupListeners(); // Remove specific event listeners
         window.removeEventListener("unload", cleanupAllListeners); // Remove unload event listener
@@ -144,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //I just thought it might be interesting to find a way to remove the cleanup add
     //as in a more complex usage, you might conditionally clean up based upon user status
     //or login status, so I wanted structure to handle the future application
-    window.addEventListener("beforeunload", function() {
+    window.addEventListener("beforeunload", function () {
         cleanupAllListeners();
     });
 });

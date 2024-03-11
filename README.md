@@ -1,6 +1,6 @@
 # Calculator App
 
-<img src="darkFinal.png"
+<img src="darkNew.png"
      alt="Dark Mode Picture"
      style="float: left; margin-right: 10px; width: 125px; height: 100px" />
 
@@ -81,10 +81,10 @@ Since most of these types of projects are undertaken by JR developers looking fo
 
 # Pictures
 ### Dark Mode
-![darkFinal picture](/darkFinal.png "Dark mode picture")
+![darknew picture](/darkNew.png "Dark mode picture")
 
 ### Light Mode
-![lightFinal picture](/lightFinal.png "Light mode picture")
+![lightNew picture](/lightNew.png "Light mode picture")
 
 ## References and Links:
 - #### [This project](https://github.com/PGA-dev/Calculator)

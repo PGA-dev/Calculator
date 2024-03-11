@@ -15,7 +15,7 @@ The project started as an attempt to create a functional calculator that encorpo
 I also jumped on to Open AI Chat GPT 3.5 to ask some general questions about modularity and listener cleanup. This was an interesting experience, as I have used Open AI a few times to answer difficult questions while in school, but didn't realize that some of its answers were actually pretty unusable, and often didn't work at all. I learned that you have to be a fairly adept developer to work using AI, as you will have to restructure, refactor, and seriously mod any code that you give it, or ask it about, to actually use within most project workflows. While I thought this was a valuable experience, I would caution young, or language inexperienced devs, in putting too much weight on artificial intelligence while coding -- AI is great to ask a syntax question: "given the following constructor approach, how might you implement this feature...", but realize that the answer it gives will likely require some very heavy modification to be usable.
 
 #### Finally...
-I did create some private versions of multiple approaches, using other devs design models, but in the end, I wanted to build one of these fairly well from scratch, so I adopted some of the features I found, using my own coding approaches -- often simplifying some of the more difficult ideas I found, as JavaScript calculators can range from very simple, to extremely capable; creating my own fairly reproducable design! I may include a few other GitHubbers, YouTubers and web calculators I find over time at the bottom of the MD! But at the time of writing this, not planning on updating this approach heavily, just realize that there is a lot f ground to cover regarding DOM interaction for calculators.
+I did create some private versions of multiple approaches, using other devs design models, but in the end, I wanted to build one of these fairly well from scratch, so I adopted some of the features I found, using my own coding approaches -- often simplifying some of the more difficult ideas I found, as JavaScript calculators can range from very simple, to extremely capable; creating my own fairly reproducable design! I may include a few other GitHubbers, YouTubers and web calculators I find over time at the bottom of the MD! But at the time of writing this, not planning on updating this approach heavily, just realize that there is a lot f ground to cover regarding DOM interaction for calculators. So the links will cover a few of the good, and the bad, designs I researched when starting; and some potential future approaches that people might be interested in.
 
 ## My Design
 
@@ -50,7 +50,7 @@ I did create some private versions of multiple approaches, using other devs desi
 - wrapped cleanup inside of window call at the end
 
 I appreciated using a key mapping approach, passing the general DOM get as a class driven input filter for button content, rather than individual id's relating to each button. I think that the CSS was pretty useful in making the calculator itself, more readable and useable; the shadowing was great to give some depth to the calculator body and the buttons. 
-Finally, and esthetically speaking, I used a light/dark toggle to play about some small amount with the CSS appearance and shadowing; a small nod to my appreciation of the CSS lessons I keep pursuing. My light/dark icons were thanks to a fellow dev vydroz: https://codepen.io/vydroz/pen/jOGywpO His approach  was much more involved for the JS calculator itself, but there were some sweet icons to use...lol 
+Finally, and esthetically speaking, I used a light/dark toggle to play about some small amount with the CSS appearance and shadowing; a small nod to my appreciation of the CSS lessons I keep pursuing. My light/dark icons were thanks to a fellow JS dev [vydroz](https://codepen.io/vydroz/pen/jOGywpO), and while his approach was much more involved for the JS calculator itself, containing history and outside links and a bunch of fun regex approaches,there were some sweet icons, and a good idea for some of the basics on light/dark to use...lol 
     
 
 ### Hours Worked:
@@ -62,7 +62,7 @@ Since most of these types of projects are undertaken by JR developers looking fo
 - #### BugFix
     - 6-8 hours
 - #### Writeup
-    - 1 hour
+    - 2 hours
 
 ## ToDo:
 - I had a little fun with the CSS, but haven't fully scaled it properly yet for tablet and mobile.
@@ -78,5 +78,16 @@ Since most of these types of projects are undertaken by JR developers looking fo
 ### Light Mode
 ![lightFinal picture](/lightFinal.png "Light mode picture")
 
-
-#### https://github.com/PGA-dev/Calculator
+## References and Links:
+- #### [This project](https://github.com/PGA-dev/Calculator)
+- #### YouTuber WebDev Simplified Kyle's approach (I like the simplicity, but elegant functional approach): [Vanilla-JavaScript-Calculator](https://github.com/WebDevSimplified/Vanilla-JavaScript-Calculator)
+- #### My Icon guy (light/dark): [CalculatorJS](https://codepen.io/vydroz/pen/jOGywpO)
+- #### Really simple approach to basics to start: [JavaScript Calculator](https://www.javatpoint.com/javascript-calculator)
+- #### Some more modular approaches, food for thought (really like the ternary usage and cleanliness of the code), there is a Free Code Camp version of Zell's down below as well: [How to build a calculator—part 3](https://zellwk.com/blog/calculator-part-3/)
+- #### Here are a couple of coding challenge versions that I have seen recently: 
+    - #### [Calculator app](https://www.frontendmentor.io/challenges/calculator-app-9lteq5N29)
+    - #### [Calculator-JavaScript](https://github.com/CodeExplainedRepo/Calculator-JavaScript/tree/master)
+- #### A couple of fairly simple versions, they have bugs, but is a good start to understand some basics when I first started looking for design: 
+    - #### [How to Build a Simple Calculator Using HTML, CSS, and JavaScript](https://www.makeuseof.com/build-a-simple-calculator-using-html-css-javascript/)
+    - #### [JavaScript Calculator](https://www.geeksforgeeks.org/javascript-calculator/)
+- #### This Free code Camp approach, by Zell Liew, is a more elaborate state driven mapping, but kind of crap for the CSS and aethetic content (may try something a bit more like this in the future): [How to build an HTML caculator app from scratch using JavaScript](https://www.freecodecamp.org/news/how-to-build-an-html-calculator-app-from-scratch-using-javascript-4454b8714b98/)

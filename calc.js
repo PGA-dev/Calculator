@@ -5,12 +5,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const buttons = document.querySelectorAll(".calculator input[type='button']");
     const toggleLightDark = document.getElementById("theme");
 
-    //hash string array for operator lookup
-    const operMap = ["**", "+", "*", "/", "%", "-"];
+    // Hash map for operator lookup
+    const operMap = {
+        "**": true,
+        "+": true,
+        "*": true,
+        "/": true,
+        "%": true,
+        "-": true
+    };
 
     // Flag to track if the result has been calculated
     let isResultCalculated = false;
-
 
     // To get rid of the eval() curse that was the legacy of early versions:
     function evaluateExpression(expression) {
@@ -23,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    //Handling for event listeners
+    // Handling for event listeners
     function addListeners() {
         try {
             clearButton.addEventListener("click", clearResultBox);
@@ -35,7 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("Error attaching listeners", error);
             return "Error";
         }
-
     }
 
     // INITIALIZE EVENT LISTENERS 
@@ -70,20 +75,21 @@ document.addEventListener("DOMContentLoaded", function () {
             clearResultBox();
         } else if (value === "-") {
             subtraction(value);
-        } else if (operMap.includes(value)) {
-            if (resultBox.value !== "" && !operMap.includes(lastChar) && lastChar !== ".") {
+        } else if (operMap[value]) { // Check if value is an operator
+            if (resultBox.value !== "" && !operMap[lastChar] && lastChar !== ".") {
                 operDisplay(value);
             }
         } else if (value === ".") {
-            if (resultBox.value != "." || !operMap.includes(lastChar)) {
+            if (resultBox.value != "." || !operMap[lastChar]) {
                 decDisplay(value);
             }
+
         } else {
             keyDisplay(value);
         }
     }
 
-    // Toggle theme event handler (used icons and the basic calling structure for the icons from vydroz's approach, but only for the function/not the key mapping -- see README.md)
+    // Toggle theme event handler
     function toggleLightDarkClickHandler() {
         let themeToggle = document.documentElement.getAttribute('theme') == null;
         themeToggle ? document.documentElement.setAttribute('theme', 'light') : document.documentElement.removeAttribute('theme', 'light');
@@ -103,28 +109,29 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function operDisplay(val) {
-        if (resultBox.value === "" || operMap.includes(resultBox.value[resultBox.value.length - 1])) {
+        if (resultBox.value === "" || operMap[resultBox.value[resultBox.value.length - 1]]) {
             return;
         }
         return resultBox.value += val;
     }
 
     function negDisplay() {
-        if (resultBox.value === ""  || operMap.includes(resultBox.value)) {
+        if (resultBox.value === "" || operMap[resultBox.value.lastChar]) {
             return;
         } else {
-            resultBox.value = (-parseFloat(resultBox.value)).toString();
+            resultBox.value = (-parseFloat(resultBox.value)).toString(); //re-write for correct slice grab
         }
     }
 
     function subtraction(val) {
         const lastChar = resultBox.value[resultBox.value.length - 1];
-        if (lastChar === "-" || operMap.includes(lastChar)) {
+        if (lastChar === "-" || operMap[lastChar]) {
             return; // Prevent improper usage
         } else {
             resultBox.value += val;
         }
     }
+
 
     function backSpace() {
         let back = resultBox.value;
@@ -132,34 +139,39 @@ document.addEventListener("DOMContentLoaded", function () {
         resultBox.value = result;
     }
 
+
     function calculate() {
         let calculation = resultBox.value;
-        const calculationResult = evaluateExpression(calculation);
-        if (calculationResult !== null) {
-            resultBox.value = calculationResult; // Update result only if calculation is successful
-            isResultCalculated = true; // Set the flag after successful calculation for result reset
-        } else {
-            // Log error message but retain current result and do not change isResultCalculated flag
-            console.error("Calculation failed. Please check your input.");
+
+        calculation = calculation.replace(/\*\*/g, '**');
+
+        try {
+            const calculationResult = evaluateExpression(calculation);
+            if (calculationResult !== null) {
+                resultBox.value = calculationResult; // Update result only if calculation is successful
+                isResultCalculated = true; // Set the flag after successful calculation for result reset
+            } else {
+                // Log error message but retain current result and do not change isResultCalculated flag
+                console.error("Calculation failed. Please check your input.");
+            }
+        } catch (error) {
+            console.error("Error evaluating expression:", error);
+            clearResultBox();
         }
     }
+
+
 
     function clearResultBox() {
         resultBox.value = "";
     }
 
-    //CLEANUP INITIALIZATION
+    // Cleanup initialization
     function cleanupAllListeners() {
         cleanupListeners(); // Remove specific event listeners
         window.removeEventListener("unload", cleanupAllListeners); // Remove unload event listener
     }
 
-    //last call approach I call this - this approach isn't really necessary to do, 
-    //to have a cleanup clean itself, instead you can call all cleanup as:
-    // window.addEventListener("unload", cleanupAllListeners)
-    //I just thought it might be interesting to find a way to remove the cleanup add
-    //as in a more complex usage, you might conditionally clean up based upon user status
-    //or login status, so I wanted structure to handle the future application
     window.addEventListener("beforeunload", function () {
         cleanupAllListeners();
     });

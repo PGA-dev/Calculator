@@ -92,6 +92,7 @@ Since most of these types of projects are undertaken by JR developers looking fo
 - #### My Icon guy (light/dark): [CalculatorJS](https://codepen.io/vydroz/pen/jOGywpO)
 - #### Really simple approach to basics to start: [JavaScript Calculator](https://www.javatpoint.com/javascript-calculator)
 - #### Some more modular approaches, food for thought (really like the ternary usage and cleanliness of the code), there is a Free Code Camp version of Zell's down below as well: [How to build a calculator—part 3](https://zellwk.com/blog/calculator-part-3/)
+    - #### Link to my repository when I learned Zell's Free Code Camp lesson: [calc-Zell](https://github.com/PGA-dev/calc-Zell)
 - #### Here are a couple of coding challenge versions that I have seen recently: 
     - #### [Calculator app](https://www.frontendmentor.io/challenges/calculator-app-9lteq5N29)
     - #### [Calculator-JavaScript](https://github.com/CodeExplainedRepo/Calculator-JavaScript/tree/master)
